@@ -1,5 +1,12 @@
-import {HiOutlineSearch, HiOutlineBookOpen, HiOutlineCheck, HiOutlineBadgeCheck, HiOutlineUserGroup} from "react-icons/hi"
+import {
+    HiOutlineSearch,
+    HiOutlineBookOpen,
+    HiOutlineCheck,
+    HiOutlineBadgeCheck,
+    HiOutlineUserGroup
+} from "react-icons/hi"
 import OverviewCard from "./OverviewCard/OverviewCard";
+import MyCourses from "./MyCourses/MyCourses";
 
 const overviewCards = [
     {
@@ -35,7 +42,7 @@ const overviewCards = [
 
 function Content() {
     return (
-        <main className="p-9 flex-1">
+        <main className="p-9 flex-1 h-full overflow-y-scroll">
             <div className="search flex items-center relative group">
                 <HiOutlineSearch className="text-xl absolute left-5 text-gray-500 group-focus-within:text-black"/>
                 <input className="pl-14 pr-5 py-3 bg-gray-100 rounded-full" type="text" placeholder="Search"/>
@@ -43,21 +50,22 @@ function Content() {
             <div className="overview mt-10">
                 <h2 className="text-xl font-semibold">Overview</h2>
                 <div className="cards flex justify-between w-full mt-5">
-                    {overviewCards.map(item=>(
-                        <OverviewCard key={item.id} id={item.id} title={item.title} color={item.color} number={item.number} Icon={item.icon}/>
+                    {overviewCards.map(item => (
+                        <OverviewCard key={item.id} id={item.id} title={item.title} color={item.color}
+                                      number={item.number} Icon={item.icon}/>
                     ))}
                 </div>
             </div>
-            <div className="courses">
-                <table></table>
-            </div>
-            <div className="recommendations">
-                <div className="recommendedCard">
+            <MyCourses/>
+            <div>
+                <div className="recommendations">
+                    <div className="recommendedCard">
 
+                    </div>
                 </div>
             </div>
         </main>
-    )
+)
 }
 
 export default Content
